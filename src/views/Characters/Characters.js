@@ -15,7 +15,7 @@ export default function Characters() {
       setChars(response);
     };
     getChars();
-  }, [race, name]);
+  }, [race, name, query]);
 
   return (
     <div>
