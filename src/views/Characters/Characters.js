@@ -5,18 +5,29 @@ import CharactersList from '../../components/Characters/CharactersList';
 
 export default function Characters() {
   const [chars, setChars] = useState([]);
+  const [race, setRace] = useState([]);
+  const [query, setQuery] = useState('');
+  const [name, setName] = useState('');
 
   useEffect(() => {
     const getChars = async () => {
-      const response = await fetchCharacters('All');
+      const response = await fetchCharacters(race, query);
       setChars(response);
     };
     getChars();
-  }, []);
+  }, [race, query]);
 
   return (
     <div>
-      <CharactersList chars={chars} />
+      <CharactersList
+        chars={chars}
+        setRace={setRace}
+        race={race}
+        setQuery={setQuery}
+        query={query}
+        name={name}
+        setName={setName}
+      />
     </div>
   );
 }
