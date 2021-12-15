@@ -2,13 +2,11 @@ import React from 'react';
 import './Character-List.css';
 
 export default function CharactersList({ chars, race, setRace, query, setQuery, name, setName }) {
-  const handleClick = (e) => {
-    let filteredName = setName(e.target.value);
-    setQuery(filteredName);
-  };
-
-  const handleChange = (e) => {
-    setQuery(e.target.value);
+  const handleClick = () => {
+    let filteredName = chars.filter((char) => {
+      return char.name.toLowerCase().includes(query);
+    });
+    setName(filteredName);
   };
 
   return (
@@ -32,7 +30,7 @@ export default function CharactersList({ chars, race, setRace, query, setQuery, 
           type="text"
           placeholder="Name"
           value={query}
-          onChange={handleChange}
+          onChange={(e) => setQuery(e.target.value)}
         ></input>
         <button value={name} onClick={handleClick}>
           Search

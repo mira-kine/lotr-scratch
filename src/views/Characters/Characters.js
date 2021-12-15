@@ -5,13 +5,13 @@ import CharactersList from '../../components/Characters/CharactersList';
 
 export default function Characters() {
   const [chars, setChars] = useState([]);
-  const [race, setRace] = useState([]);
+  const [race, setRace] = useState('All');
   const [query, setQuery] = useState('');
-  const [name, setName] = useState('');
+  const [name, setName] = useState([]);
 
   useEffect(() => {
     const getChars = async () => {
-      const response = await fetchCharacters(race, name);
+      const response = await fetchCharacters(race, query);
       setChars(response);
     };
     getChars();
