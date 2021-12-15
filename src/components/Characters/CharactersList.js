@@ -7,6 +7,7 @@ export default function CharactersList({ chars }) {
         {chars.map((item) => (
           <div className="char" key={item.id}>
             <p>{item.name}</p>
+            <p>{item.race}</p>
           </div>
         ))}
       </div>
