@@ -3,7 +3,12 @@ import './Character-List.css';
 
 export default function CharactersList({ chars, race, setRace, query, setQuery, name, setName }) {
   const handleClick = (e) => {
-    setName(e.target.value);
+    let filteredName = setName(e.target.value);
+    setQuery(filteredName);
+  };
+
+  const handleChange = (e) => {
+    setQuery(e.target.value);
   };
 
   return (
@@ -27,9 +32,7 @@ export default function CharactersList({ chars, race, setRace, query, setQuery, 
           type="text"
           placeholder="Name"
           value={query}
-          onChange={(e) => {
-            setQuery(e.target.value);
-          }}
+          onChange={handleChange}
         ></input>
         <button value={name} onClick={handleClick}>
           Search
