@@ -5,11 +5,10 @@ import CharactersList from '../../components/Characters/CharactersList';
 
 export default function Characters() {
   const [chars, setChars] = useState([]);
-  const [query, setQuery] = useState('');
 
   useEffect(() => {
     const getChars = async () => {
-      const response = await fetchCharacters('All', query);
+      const response = await fetchCharacters('All');
       setChars(response);
     };
     getChars();
@@ -17,7 +16,7 @@ export default function Characters() {
 
   return (
     <div>
-      <CharactersList chars={chars} setQuery={setQuery} query={query} />
+      <CharactersList chars={chars} />
     </div>
   );
 }
