@@ -6,15 +6,16 @@ import CharactersList from '../../components/Characters/CharactersList';
 export default function Characters() {
   const [chars, setChars] = useState([]);
   const [race, setRace] = useState([]);
-  const [sortName, setSortName] = useState('');
+  const [query, setQuery] = useState('');
+  const [name, setName] = useState('');
 
   useEffect(() => {
     const getChars = async () => {
-      const response = await fetchCharacters(race);
+      const response = await fetchCharacters(race, query);
       setChars(response);
     };
     getChars();
-  }, [race]);
+  }, [race, query]);
 
   return (
     <div>
@@ -22,8 +23,10 @@ export default function Characters() {
         chars={chars}
         setRace={setRace}
         race={race}
-        sortName={sortName}
-        setSortName={setSortName}
+        setQuery={setQuery}
+        query={query}
+        name={name}
+        setName={setName}
       />
     </div>
   );

@@ -1,8 +1,8 @@
-// import { render, screen } from '@testing-library/react';
-// import App from './App';
+import { render, screen } from '@testing-library/react';
+import App from './App';
 
-// test('renders films and characters links', () => {
-//   render(<App />);
-//   const films = screen.getByText(/Films/i);
-//   expect(<h1>).toBeInTheDocument();
-// });
+test(`renders films and characters links`, () => {
+  render(<App />);
+  const films = screen.getByText(/Films/i);
+  expect(films).toBeInTheDocument();
+});
