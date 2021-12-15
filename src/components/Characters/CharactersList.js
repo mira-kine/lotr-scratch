@@ -1,14 +1,7 @@
 import React from 'react';
 import './Character-List.css';
 
-export default function CharactersList({ chars, race, setRace, query, setQuery, name, setName }) {
-  const handleClick = () => {
-    let filteredName = chars.filter((char) => {
-      return char.name.toLowerCase().includes(query);
-    });
-    setName(filteredName);
-  };
-
+export default function CharactersList({ chars, race, setRace, query, setQuery, handleClick }) {
   return (
     <div>
       <div className="race-filter-container">
@@ -32,7 +25,7 @@ export default function CharactersList({ chars, race, setRace, query, setQuery, 
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         ></input>
-        <button value={name} onClick={handleClick}>
+        <button value={chars} onClick={handleClick}>
           Search
         </button>
       </div>
