@@ -7,6 +7,7 @@ import Books from './views/Books/Books';
 function App() {
   return (
     <div className="App">
+      <h1>Lord of the Rings</h1>
       <BrowserRouter>
         <header>
           <NavLink to="/main" data-testid="main-link">
